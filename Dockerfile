@@ -12,4 +12,6 @@ RUN curl \
 
 WORKDIR /usr/datomic-pro
 
+RUN rm datomic-pro-1.0.7187/lib/postgresql-42.5.1.jar
+
 CMD bin/transactor config/transactor.properties
