@@ -15,5 +15,7 @@ WORKDIR /usr/datomic-pro
 RUN rm /usr/datomic-pro/lib/postgresql-42.5.1.jar
 
 COPY postgresql-42.7.4.jar /usr/datomic-pro/lib/postgresql-42.7.4.jar
+COPY generate-properties.clj /usr/config/generate-properties.clj
 
-CMD bin/transactor config/transactor.properties
+CMD hostname -i | bb /usr/config/generate-properties.clj && \
+    bin/transactor config/transactor.properties
