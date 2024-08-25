@@ -14,4 +14,6 @@ WORKDIR /usr/datomic-pro
 
 RUN rm /usr/datomic-pro/lib/postgresql-42.5.1.jar
 
+COPY postgresql-42.7.4.jar /usr/datomic-pro/lib/postgresql-42.7.4.jar
+
 CMD bin/transactor config/transactor.properties
